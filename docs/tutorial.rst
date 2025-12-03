@@ -573,7 +573,7 @@ as possible! Good practice includes adding a ``$`` anchor at the end of the rege
 
     # Sort paths with ABC in them first, then DEF, then GHI.
     # Everything with »temp«, »tmp« or »cache« in it comes last,
-    # the rest is sandwhiched in between and sorted by their modification time (m).
+    # the rest is sandwiched in between and sorted by their modification time (m).
     # If something is tied, the modification time is also used a sorting criteria.
     $ rmlint -S 'r<.*ABC.*>r<.*DEF.*>r<.*GHI.*>R<.*(tmp|temp|cache).*>m' /tmp/t
 

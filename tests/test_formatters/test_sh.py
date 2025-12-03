@@ -126,7 +126,7 @@ def test_anon_pipe(usual_setup_usual_teardown):
 
     data = run_rmlint(
         "-o sh:>(cat)",
-        force_no_pendantic=True,
+        force_no_pedantic=True,
         directly_return_output=True,
         use_shell=True
     )

@@ -204,7 +204,7 @@ def compare_json_doc(doc_a, doc_b, compare_checksum=False):
         'disk_id', 'inode', 'mtime', 'path', 'size', 'type'
     ]
 
-    if compare_checksum and 'checkum' in doc_a and 'checksum' in doc_b:
+    if compare_checksum and 'checksum' in doc_a and 'checksum' in doc_b:
         keys.append('checksum')
 
     for key in keys:
@@ -305,8 +305,8 @@ def run_rmlint_pedantic(*args, **kwargs):
     return data
 
 
-def run_rmlint(*args, force_no_pendantic=False, **kwargs):
-    if get_env_flag('RM_TS_PEDANTIC') and force_no_pendantic is False:
+def run_rmlint(*args, force_no_pedantic=False, **kwargs):
+    if get_env_flag('RM_TS_PEDANTIC') and force_no_pedantic is False:
         return run_rmlint_pedantic(*args, **kwargs)
     else:
         return run_rmlint_once(*args, **kwargs)

@@ -78,7 +78,7 @@ Here's a list of readily prepared commands for known operating systems:
     $ sudo pacman -S python-sphinx python-sphinx-bootstrap-theme
     # Optional dependencies for the GUI:
     $ sudo pacman -S python-setuptools python-gobject python-cairo gtksourceview4 librsvg
-    # Optional dependancies for tests:
+    # Optional dependencies for tests:
     $ sudo pacman -S python-pytest python-xattr python-psutil btrfs-progs
 
   There is also git packages in AUR, from the ``master`` branch: `rmlint-git`_, `rmlint-shredder-git`_ ; and the ``develop`` branch: `rmlint-develop-git`_, `rmlint-shredder-develop-git`_.
@@ -110,7 +110,7 @@ Here's a list of readily prepared commands for known operating systems:
     $ sudo apt install python3-sphinx python3-sphinx-bootstrap-theme
     # Optional dependencies for the GUI:
     $ sudo apt install python3-setuptools python3-gi-cairo gir1.2-gtksource-4 gir1.2-polkit-1.0 gir1.2-rsvg-2.0 python3-colorlog
-    # Optional dependancies for tests:
+    # Optional dependencies for tests:
     $ sudo apt install python3-pytest python3-psutil python3-xattr
 
 .. _Debian: https://packages.debian.org/rmlint
