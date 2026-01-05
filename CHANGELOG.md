@@ -55,7 +55,7 @@ The format follows [keepachangelog.com]. Please stick to it.
 * issue #438: fix 'Can't open directory or file "...": Invalid argument' on some platforms
 * issue #621: fix GUI freeze with glib 2.75.3 and above
 * issue #608: fix setuptools InvalidVersion error when installing GUI with packaging 22.0 and above
-* issue #613: actually remove the GUI's Polkit requrement ('Namespace Polkit not available')
+* issue #613: actually remove the GUI's Polkit requirement ('Namespace Polkit not available')
 * issue #522: fix --size overflow detection on some platforms
 * issue #549: fix 'assertion failed: (node-\>inode != RM\_NO\_INODE)' on 32-bit platforms
 * issue #555: fix deadlock when `-T nonstripped` encountered an executable FIFO
