@@ -253,14 +253,15 @@ def run_rmlint_pedantic(*args, **kwargs):
         '--without-fiemap',
         '--fake-pathindex-as-disk',
         '--fake-fiemap',
-        '-P',
-        '-PP',
-        '--limit-mem 1M --algorithm=paranoid',
         '--buffered-read',
         '--threads=1',
         '--shred-never-wait',
         '--shred-always-wait',
-        '--no-mount-table'
+        '--no-mount-table',
+        '-P',
+        '-PP',
+        '-PPP',
+        '--algorithm=paranoid --limit-mem 1M'
     ]
 
 
@@ -293,7 +294,9 @@ def run_rmlint_pedantic(*args, **kwargs):
                 data_skip = data[:-output_len]
 
         # We cannot compare checksum in all cases.
-        compare_checksum = not option.startswith('--algorithm=')
+        # XXX: algorithm options must be grouped at the end of the options list.
+        # TODO: end-to-end tests of algorithms
+        compare_checksum = not any((option.startswith('--algorithm='), option.startswith('-P'), option.startswith('-p')))
 
         if data_skip is not None and not 'directly_return_output' in kwargs and not compare_json_docs(data_skip, new_data_skip, compare_checksum):
             pprint.pprint(data_skip)
