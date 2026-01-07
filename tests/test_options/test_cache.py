@@ -171,11 +171,11 @@ def test_clamp_xattr_false_negative(usual_setup_usual_teardown, clamp):
     create_file('xxx', 'c')
 
     # the first run after creating 'c' is ok...
-    head, *data, foot = run_rmlint('--xattr', force_no_pendantic=True)
+    head, *data, foot = run_rmlint('--xattr', force_no_pedantic=True)
     assert len([e for e in data if e['type'] == 'duplicate_file']) == 2  # 'a' matches 'c'
 
     # but we would get a false negative here, as the xattrs didn't match
-    head, *data, foot = run_rmlint('--xattr', force_no_pendantic=True)
+    head, *data, foot = run_rmlint('--xattr', force_no_pedantic=True)
     assert len([e for e in data if e['type'] == 'duplicate_file']) == 2  # do they still match?
 
 
@@ -194,9 +194,9 @@ def test_clamp_xattr_false_positive(usual_setup_usual_teardown, clamp):
     assert len([e for e in data if e['type'] == 'duplicate_file']) == 2  # '1' matches 'a/1'
 
     # fill in other xattrs
-    head, *data, foot = run_rmlint('--xattr', force_no_pendantic=True)
+    head, *data, foot = run_rmlint('--xattr', force_no_pedantic=True)
     assert len([e for e in data if e['type'] == 'duplicate_file']) == 4  # '1' matches 'a/1', '2' matches 'b/2'
 
     # we would get a false positive here, as the xattrs matched
-    head, *data, foot = run_rmlint('--xattr -T dd', force_no_pendantic=True)
+    head, *data, foot = run_rmlint('--xattr -T dd', force_no_pedantic=True)
     assert not any(e['type'] == 'duplicate_dir' for e in data)  # do 'a' and 'b' match?

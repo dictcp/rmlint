@@ -76,7 +76,7 @@ def test_symlink(usual_setup_usual_teardown):
     except AssertionError:
         pass  # expected failure
     else:
-        raise AssertionError('test was epxected to fail')
+        raise AssertionError('test was expected to fail')
 
 
 def _run_dd_urandom(outfile, blocksize, count, extra=''):
