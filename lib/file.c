@@ -184,10 +184,12 @@ gint rm_file_relpaths_cmp(const RmFile *file_a, const RmFile *file_b) {
     gint diff = file_a->depth - file_b->depth;
     RETURN_IF_NONZERO(diff);
 
-    /* If both files have depth 0, we still need to distinguish them by at
-     * least their basenames; otherwise, they would always compare equal. */
+    /* Depth 0 means both commandline inputs were explicit files.
+     * Compare full paths to avoid overmatching by basename only. */
     if(file_a->depth == 0) {
-        return rm_file_basenames_cmp(file_a, file_b);
+        RM_DEFINE_PATH(file_a);
+        RM_DEFINE_PATH(file_b);
+        return g_ascii_strcasecmp(file_a_path, file_b_path);
     }
     RmNode *node_a = file_a->folder;
     RmNode *node_b = file_b->folder;
