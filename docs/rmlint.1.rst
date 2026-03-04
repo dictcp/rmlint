@@ -359,12 +359,20 @@ Traversal Options
 :``-b --match-basename``:
 
     Only consider those files as dupes that have the same basename. See also
-    ``man 1 basename``. The comparison of the basenames is case-insensitive.
+    ``man 1 basename``. The comparison of the basenames is case-insensitive for
+    ASCII characters only; non-ASCII UTF-8 characters must match exactly.
 
 :``-B --unmatched-basename``:
 
     Only consider those files as dupes that do not share the same basename.
-    See also ``man 1 basename``. The comparison of the basenames is case-insensitive.
+    See also ``man 1 basename``. The comparison of the basenames is case-insensitive for
+    ASCII characters only; non-ASCII UTF-8 characters must match exactly.
+
+:``--match-relative-path``:
+
+    Only consider those files as dupes that have the same relative path.
+    Path components are compared case-insensitive for ASCII characters only;
+    non-ASCII UTF-8 characters must match exactly.
 
 :``-e --match-extension`` / ``-E --no-match-extension`` (**default**):
 
