@@ -53,3 +53,16 @@ def test_positive_match_relative_path_depth_4(usual_setup_usual_teardown):
     assert footer['total_files'] == 2
     assert footer['total_lint_size'] == 3
     assert footer['duplicates'] == 1
+
+
+def test_negative_match_relative_path_explicit_files(usual_setup_usual_teardown):
+    path_a = create_file('xxx', 'base_a/file_a')
+    path_b = create_file('xxx', 'base_b/file_b')
+
+    head, *data, footer = run_rmlint(
+        '--match-relative-path', path_a, path_b,
+        use_default_dir=False
+    )
+    assert footer['total_files'] == 2
+    assert footer['total_lint_size'] == 0
+    assert footer['duplicates'] == 0
