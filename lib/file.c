@@ -186,7 +186,7 @@ gint rm_file_relpaths_cmp(const RmFile *file_a, const RmFile *file_b) {
 
     RmNode *node_a = file_a->folder;
     RmNode *node_b = file_b->folder;
-    for(gint16 depth = file_a->depth; depth > 0; --depth) {
+    for(gint depth = file_a->depth; depth > 0; --depth) {
         g_assert(node_a);
         g_assert(node_b);
 

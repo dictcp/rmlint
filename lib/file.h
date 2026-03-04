@@ -379,7 +379,7 @@ gint rm_file_basenames_cmp(const RmFile *file_a, const RmFile *file_b);
 
 /**
  * @brief Compare relative paths of two files
- * @retval true if relative paths match.
+ * @return 0 if relative paths match, non-zero otherwise.
  */
 gint rm_file_relpaths_cmp(const RmFile *file_a, const RmFile *file_b);
 

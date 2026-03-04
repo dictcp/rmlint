@@ -89,6 +89,7 @@ gint rm_file_cmp(const RmFile *file_a, const RmFile *file_b) {
 
     if(cfg->match_relative_path) {
         result = rm_file_relpaths_cmp(file_a, file_b);
+        RETURN_IF_NONZERO(result);
     }
 
     return result;
