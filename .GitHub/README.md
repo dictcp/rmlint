@@ -5,9 +5,13 @@ implements
 
 ## Usage
 ```bash
-rmlint --match-relative-path --progress /mnt/A /mnt/B
+rmlint --progress -KM --match-relative-path /mnt/base // /mnt/portable
 
 # OR via Docker
-sudo docker run --rm -it ghcr.io/dictcp/rmlint -T df --match-relative-path --progress /mnt/A /mnt/B
+sudo docker run --rm -it ghcr.io/dictcp/rmlint -T df --progress -KM --match-relative-path /mnt/base // /mnt/portable
 # WARN: remember df to avoid baduid in Docker
+
+# OR my preference, adhoc shell in terminal
+sudo docker run --rm -it --entrypoint=/bin/bash -v /volume1:/volume1:ro ghcr.io/dictcp/rmlint`
+rmlint -T df --progress -KM --match-relative-path /mnt/base // /mnt/portable
 ```
