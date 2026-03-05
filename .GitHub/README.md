@@ -12,6 +12,7 @@ sudo docker run --rm -it ghcr.io/dictcp/rmlint -T df --progress -KM --match-rela
 # WARN: remember df to avoid baduid in Docker
 
 # OR my preference, adhoc shell in terminal
-sudo docker run --rm -it --entrypoint=/bin/bash -v /volume1:/volume1:ro ghcr.io/dictcp/rmlint`
+sudo docker run --rm -it --entrypoint=/bin/bash -v /volume1:/volume1:ro ghcr.io/dictcp/rmlint
+# in docker shell:
 rmlint -T df --progress -KM --match-relative-path /mnt/base // /mnt/portable
 ```
